@@ -155,8 +155,10 @@ int DNSClient::getHostByName(const char* aHostname, IPAddress& aResult)
                         int wait_retries = 0;
                         ret = TIMED_OUT;
                         while ((wait_retries < 3) && (ret == TIMED_OUT))
-                        {
+                        {  Serial.println("Req");
                             ret = ProcessResponse(5000, aResult);
+                             Serial.println ("Res");
+                        
                             wait_retries++;
                         }
                     }
