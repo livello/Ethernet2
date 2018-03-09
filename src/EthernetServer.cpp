@@ -5,8 +5,8 @@ extern "C" {
 }
 
 #include "Ethernet2.h"
-#include "EthernetClient.h"
-#include "EthernetServer.h"
+#include "EthernetClient2.h"
+#include "EthernetServer2.h"
 
 EthernetServer::EthernetServer(uint16_t port)
 {

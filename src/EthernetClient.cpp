@@ -8,8 +8,8 @@ extern "C" {
 #include "Arduino.h"
 
 #include "Ethernet2.h"
-#include "EthernetClient.h"
-#include "EthernetServer.h"
+#include "EthernetClient2.h"
+#include "EthernetServer2.h"
 #include "Dns.h"
 
 uint16_t EthernetClient::_srcport = 1024;
