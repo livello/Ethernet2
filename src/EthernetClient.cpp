@@ -55,7 +55,7 @@ int EthernetClient::connect(IPAddress ip, uint16_t port) {
     return 0;
 
   _srcport++;
-  _srcport+=random()*64; ///////
+  _srcport+=random(64); ///////
   if (_srcport == 0) _srcport = 1024;
   socket(_sock, SnMR::TCP, _srcport, 0);
   Serial.print("connecting");Serial.print(" s:");Serial.print(_sock); Serial.print(" sport:");Serial.print(_srcport);  Serial.print(" dport:");Serial.print(port); Serial.print(" IP:");
