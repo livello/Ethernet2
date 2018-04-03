@@ -54,8 +54,15 @@ int EthernetClient::connect(IPAddress ip, uint16_t port) {
   if (_sock == MAX_SOCK_NUM)
     return 0;
 
-  _srcport++;
-  _srcport+=random(64); ///////
+   _srcport++;
+    
+#if defined(__AVR__)
+  _srcport+=random()*64; 
+#endif
+    
+#if defined(__SAM3X8E__)
+    _srcport+=random(0x7FFFFFFF)*64; //RANDOM_MAX stdlib.h
+#endif
   if (_srcport == 0) _srcport = 1024;
   socket(_sock, SnMR::TCP, _srcport, 0);
   Serial.print("connecting");Serial.print(" s:");Serial.print(_sock); Serial.print(" sport:");Serial.print(_srcport);  Serial.print(" dport:");Serial.print(port); Serial.print(" IP:");
